@@ -1,6 +1,6 @@
-import fetch from "node-fetch";
 import "dotenv/config";
-import {list as commands} from "./commands/index.js";
+import fetch from "node-fetch";
+import {commandList as commands} from "./commands/index.js";
 
 const token = process.env.DISCORD_TOKEN;
 const applicationId = process.env.DISCORD_APPLICATION_ID;
@@ -21,10 +21,15 @@ async function registerGuildCommands() {
     const json = await res.json() as any;
     console.log(json);
     for (const cmd of json) {
-        const response = await fetch(`https://discord.com/api/v10/applications/${applicationId}/guilds/${testGuildId}/commands/${cmd.id}`);
-        if (!response.ok) {
+        const response = await fetch(`https://discord.com/api/v10/applications/${applicationId}/guilds/${testGuildId}/commands/${cmd.id}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bot ${token}`,
+            },
+        });
+
+        if (!response.ok)
             console.error(`Problem removing command ${cmd.id}`);
-        }
     }
 }
 
@@ -42,10 +47,16 @@ async function registerCommands(url: string) {
         console.log('Registered all commands');
     } else {
         console.error('Error registering commands');
-        const text = await response.text();
-        console.error(text);
+        // const text = await response.text();
+        console.error(response);
     }
     return response;
 }
 
+// async function registerGlobalCommands() {
+//     const url = `https://discord.com/api/v10/applications/${applicationId}/commands`;
+//     await registerCommands(url);
+// }
+
+// await registerGlobalCommands();
 await registerGuildCommands();
