@@ -1,0 +1,28 @@
+{
+  "name": "chizuru",
+  "version": "0.1.0",
+  "description": "An HTTP interactions NSFW bot for Discord",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "tsc && node dist/server.js",
+    "build": "tsc",
+    "dev": "tsc && wrangler dev dist/server.js",
+    "ngrok": "tsc && ngrok http 8787",
+    "register": "tsc && node dist/register.js",
+    "publish": "tsc && wrangler publish"
+  },
+  "author": "Sam Teeuwisse",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "@types/node": "^17.0.31",
+    "ngrok": "^4.3.1",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "discord-interactions": "^3.2.0",
+    "itty-router": "^2.6.1"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "Chizuru",
+      "script": "dist/index.js",
+      "node_args": ["--enable-source-maps", "--trace-warnings", "--stack-trace-limit=20"],
+      "args": ["--color"],
+      "log_date_format": "DD/MM HH:mm:ss",
+      "restart_delay": 2500,
+      "wait_ready": true
+    }
+  ]
+}

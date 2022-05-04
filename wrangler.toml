@@ -1,0 +1,14 @@
+name = "chizuru"
+main = "./dist/server.js"
+compatibility_date="2022-02-26"
+
+account_id = "60bad2046ec70f6d5c5bd5347443d9f5"
+workers_dev = true
+
+[[rules]]
+type = "ESModule"
+globs = [ "**/*.js" ]
+
+[env.dev]
+
+[env.production]
