@@ -1,7 +1,7 @@
 import {Command} from "../types.js";
 import {APIs, ImageType} from "../resources/apis.js";
-import {UnsafeEmbedBuilder} from "@discordjs/builders";
 import {COLORS} from "../resources/colors.js";
+import {EmbedBuilder} from "../modules/builders/EmbedBuilder.js";
 
 export const neko: Command = {
     data: {
@@ -14,7 +14,7 @@ export const neko: Command = {
     run: async () => {
         const url = await APIs.get(ImageType.Neko)?.getUrl();
 
-        const embed = new UnsafeEmbedBuilder();
+        const embed = new EmbedBuilder();
 
         if(!url) {
             embed.setTitle('An error occurred while fetching the image.');
