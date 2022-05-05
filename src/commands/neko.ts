@@ -1,4 +1,7 @@
 import {Command} from "../types.js";
+import {APIs, ImageType} from "../resources/apis.js";
+import {EmbedBuilder} from "@discordjs/builders";
+import {COLORS} from "../resources/colors.js";
 
 export const neko: Command = {
     data: {
@@ -9,23 +12,23 @@ export const neko: Command = {
         nsfw: true,
     },
     run: async () => {
-        const response = await fetch('https://api.waifu.pics/nsfw/neko');
-        if(!response.ok) {
-            return {
-                type: 4,
-                data: {
-                    content: 'An error occurred while fetching the image.',
-                }
-            }
-        }
+        const url = await APIs.get(ImageType.Neko)?.getUrl();
 
-        const data = await response.json();
+        const embed = new EmbedBuilder();
+
+        if(!url) {
+            embed.setTitle('An error occurred while fetching the image.');
+            embed.setColor(COLORS.red)
+        } else {
+            embed.setTitle("Have a cute neko~!");
+            embed.setColor(COLORS.yellow);
+        }
 
         return {
             type: 4,
             data: {
-                content: data.url,
-            },
+                embeds: [embed.data],
+            }
         };
     }
 }

@@ -19,7 +19,6 @@ async function registerGuildCommands() {
     const url = `https://discord.com/api/v10/applications/${applicationId}/guilds/${testGuildId}/commands`;
     const res = await registerCommands(url);
     const json = await res.json() as any;
-    console.log(json);
     for (const cmd of json) {
         const response = await fetch(`https://discord.com/api/v10/applications/${applicationId}/guilds/${testGuildId}/commands/${cmd.id}`, {
             headers: {
@@ -43,20 +42,21 @@ async function registerCommands(url: string) {
         body: JSON.stringify(commands.map(c => c.data)),
     });
 
-    if (response.ok) {
-        console.log('Registered all commands');
-    } else {
+    if (!response.ok) {
         console.error('Error registering commands');
-        // const text = await response.text();
-        console.error(response);
+        console.error(`Error (${response.status}): ${await response.text()}`);
     }
+
+    console.log('Commands registered');
     return response;
 }
 
-// async function registerGlobalCommands() {
-//     const url = `https://discord.com/api/v10/applications/${applicationId}/commands`;
-//     await registerCommands(url);
-// }
+async function registerGlobalCommands() {
+    const url = `https://discord.com/api/v10/applications/${applicationId}/commands`;
+    await registerCommands(url);
+}
 
-// await registerGlobalCommands();
-await registerGuildCommands();
+if (process.env.DEV === "true")
+    await registerGuildCommands();
+else
+    await registerGlobalCommands();
