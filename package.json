@@ -1,6 +1,6 @@
 {
   "name": "chizuru",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An HTTP interactions NSFW bot for Discord",
   "type": "module",
   "main": "dist/server.js",

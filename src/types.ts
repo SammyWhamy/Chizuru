@@ -1,4 +1,9 @@
-import {APIChatInputApplicationCommandInteraction, APIApplicationCommandOption, APIInteractionResponseChannelMessageWithSource, APIInteractionResponseDeferredChannelMessageWithSource} from "discord-api-types/v10.js";
+import {
+    APIChatInputApplicationCommandInteraction,
+    APIApplicationCommandOption,
+    APIInteractionResponseChannelMessageWithSource,
+    APIInteractionResponseDeferredChannelMessageWithSource
+} from "discord-api-types/v10";
 
 export interface Command {
     run: (message: APIChatInputApplicationCommandInteraction, env: {[key: string]: any}) => Promise<APIInteractionResponseChannelMessageWithSource | APIInteractionResponseDeferredChannelMessageWithSource>,

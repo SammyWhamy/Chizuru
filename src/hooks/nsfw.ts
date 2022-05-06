@@ -1,4 +1,4 @@
-import {APIChatInputApplicationCommandInteraction, APITextChannel} from "discord-api-types/v10.js";
+import {APIChatInputApplicationCommandInteraction, APITextChannel} from "discord-api-types/v10";
 
 export async function checkNsfw(message: APIChatInputApplicationCommandInteraction, env: {[key: string]: any}) {
     const url = `https://discord.com/api/v10/channels/${message.channel_id}`;
