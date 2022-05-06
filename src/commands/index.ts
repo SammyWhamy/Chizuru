@@ -1,8 +1,12 @@
+import {ApplicationCommandOptionType} from "discord-api-types/v10";
 import {ping} from "./ping.js";
 import {neko} from "./neko.js";
-import {ApplicationCommandOptionType} from "discord-api-types/v10";
+import {highres} from "./highres.js";
+import {trap} from "./trap.js";
+import {blowjob} from "./blowjob.js";
+import {waifu} from "./waifu.js";
 
-const list = [ping, neko];
+const list = [ping, neko, highres, trap, blowjob, waifu];
 for(const command of list) {
     if(!command.data.options)
         command.data.options = [];

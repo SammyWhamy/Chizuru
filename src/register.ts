@@ -56,7 +56,10 @@ async function registerGlobalCommands() {
     await registerCommands(url);
 }
 
-if (process.env.DEV === "true")
+if (process.env.DEV === "true") {
+    console.log('Registering guild commands...');
     await registerGuildCommands();
-else
+} else {
+    console.log('Registering global commands...');
     await registerGlobalCommands();
+}
