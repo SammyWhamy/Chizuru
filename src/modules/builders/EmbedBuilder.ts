@@ -1,4 +1,4 @@
-import type { APIEmbed, APIEmbedAuthor, APIEmbedField, APIEmbedFooter, APIEmbedImage } from 'discord-api-types/v10';
+import type { APIEmbed, APIEmbedAuthor, APIEmbedField, APIEmbedFooter } from 'discord-api-types/v10';
 
 export type RGBTuple = [red: number, green: number, blue: number];
 
@@ -15,10 +15,6 @@ export type EmbedFooterData = Omit<APIEmbedFooter, 'icon_url' | 'proxy_icon_url'
 
 export type EmbedFooterOptions = Omit<EmbedFooterData, 'proxyIconURL'>;
 
-export interface EmbedImageData extends Omit<APIEmbedImage, 'proxy_url'> {
-    proxyURL?: string;
-}
-
 export class EmbedBuilder {
     public readonly data: APIEmbed;
 
@@ -30,17 +26,6 @@ export class EmbedBuilder {
     public addFields(fields: APIEmbedField[]): this {
         if (this.data.fields) this.data.fields.push(...fields);
         else this.data.fields = fields;
-        return this;
-    }
-
-    public spliceFields(index: number, deleteCount: number, ...fields: APIEmbedField[]): this {
-        if (this.data.fields) this.data.fields.splice(index, deleteCount, ...fields);
-        else this.data.fields = fields;
-        return this;
-    }
-
-    public setFields(fields: APIEmbedField[]) {
-        this.spliceFields(0, this.data.fields?.length ?? 0, ...fields);
         return this;
     }
 
@@ -102,9 +87,5 @@ export class EmbedBuilder {
     public setURL(url: string | null): this {
         this.data.url = url ?? undefined;
         return this;
-    }
-
-    public toJSON(): APIEmbed {
-        return { ...this.data };
     }
 }

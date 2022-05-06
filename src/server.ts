@@ -54,9 +54,9 @@ router.post('/', async (request, env) => {
         let tags: ImageType[] = [];
 
         if(message.data.name === "hentai") {
-            tags = hentaiTags.filter(tag => tag.includes(query.value)).slice(0, 25);
+            tags = hentaiTags.filter(tag => tag.includes(query.value.toLowerCase())).slice(0, 25);
         } else if (message.data.name === "irl") {
-            tags = irlTags.filter(tag => tag.includes(query.value)).slice(0, 25);
+            tags = irlTags.filter(tag => tag.includes(query.value.toLowerCase())).slice(0, 25);
         }
 
         return new JsonResponse({
