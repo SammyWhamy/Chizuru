@@ -14,7 +14,6 @@ import {checkNsfw} from "./hooks/nsfw.js";
 import {processEphemeral} from "./hooks/processEphemeral.js";
 import {irlAutocomplete} from "./autocomplete/irlAutocomplete.js";
 import {hentaiAutocomplete} from "./autocomplete/hentaiAutocomplete.js";
-import {gelbooruAutocomplete} from "./autocomplete/gelbooruAutocomplete.js";
 
 const commands: Map<string, Command> = new Map();
 for(const command of commandList)
@@ -61,9 +60,6 @@ router.post('/', async (request, env) => {
                 break;
             case 'hentai':
                 choices = hentaiAutocomplete(query);
-                break;
-            case 'gelbooru':
-                choices = await gelbooruAutocomplete(query);
                 break;
             default:
                 choices = [];
