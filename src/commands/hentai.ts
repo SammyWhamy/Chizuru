@@ -41,7 +41,7 @@ export const hentai = new ChatCommand({
             embed.setImage(url);
         }
 
-        const ephemeral = !!message.data.options?.some(option => option.name === "show" && "value" in option && option.value === true);
+        const ephemeral = !message.data.options?.some(option => option.name === "show" && "value" in option && option.value === true);
         return new MessageResponse({embeds: [embed], ephemeral: ephemeral});
     },
     autocompleter: hentaiAutocomplete,
