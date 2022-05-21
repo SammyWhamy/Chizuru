@@ -11,10 +11,8 @@ export interface Command {
         name: string,
         description: string,
         options?: APIApplicationCommandOption[],
+        nsfw?: boolean,
     },
-    props: {
-        nsfw: boolean,
-    }
 }
 
 export interface Choice {

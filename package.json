@@ -10,6 +10,7 @@
     "dev": "tsc && wrangler dev dist/server.js",
     "ngrok": "tsc && ngrok http 8787",
     "register": "tsc && node dist/register.js",
+    "unregister": "tsc && node dist/unregister.js",
     "publish": "tsc && wrangler publish"
   },
   "author": "Sam Teeuwisse",
@@ -26,7 +27,6 @@
   },
   "dependencies": {
     "discord-api-types": "^0.32.0",
-    "discord-interactions": "^3.2.0",
-    "itty-router": "^2.6.1"
+    "dishttp": "^2.0.0-alpha.0"
   }
 }

@@ -1,5 +1,5 @@
 name = "chizuru"
-main = "./dist/server.js"
+main = "./dist/index.js"
 compatibility_date="2022-02-26"
 
 account_id = "60bad2046ec70f6d5c5bd5347443d9f5"

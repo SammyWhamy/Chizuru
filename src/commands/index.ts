@@ -15,4 +15,5 @@ for(const command of list) {
         required: false,
     })
 }
-export const commandList = list;
+
+export const commands = list;
