@@ -1,5 +1,4 @@
 import {ChatCommand, Embed, MessageResponse} from "dishttp";
-import {processEphemeral} from "../hooks/processEphemeral.js";
 
 export const ping = new ChatCommand({
     data: {
@@ -12,8 +11,7 @@ export const ping = new ChatCommand({
             .setTitle("Pong!")
             .setColor(0xFFAACC)
 
-        const response = new MessageResponse({embeds: [embed]});
-        processEphemeral(message, response);
-        return response;
+        const ephemeral = !!message.data.options?.some(option => option.name === "show" && "value" in option && option.value === true);
+        return new MessageResponse({embeds: [embed], ephemeral: ephemeral});
     },
 });

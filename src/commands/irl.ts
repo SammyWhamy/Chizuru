@@ -3,7 +3,6 @@ import {APIs, ImageType, irlTags} from "../resources/apis.js";
 import {COLORS} from "../resources/colors.js";
 import {ChatCommand, Embed, MessageResponse} from "dishttp";
 import {irlAutocomplete} from "../autocomplete/irlAutocomplete.js";
-import {processEphemeral} from "../hooks/processEphemeral.js";
 
 export const irl = new ChatCommand({
     data: {
@@ -42,9 +41,8 @@ export const irl = new ChatCommand({
             embed.setImage(url);
         }
 
-        const response = new MessageResponse({embeds: [embed]});
-        processEphemeral(message, response);
-        return response;
+        const ephemeral = !!message.data.options?.some(option => option.name === "show" && "value" in option && option.value === true);
+        return new MessageResponse({embeds: [embed], ephemeral: ephemeral});
     },
     autocompleter: irlAutocomplete,
 });
