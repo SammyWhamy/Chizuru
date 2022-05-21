@@ -1,5 +1,5 @@
 async function getImage(this: API): Promise<string | null> {
-  const response = await fetch(this.url);
+  const response = await fetch(this.url, {keepalive: true});
   if (!response?.ok) return null;
   const data = await response.json();
   return data[this.field];

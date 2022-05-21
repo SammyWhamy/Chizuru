@@ -16,3 +16,8 @@ export interface Command {
         nsfw: boolean,
     }
 }
+
+export interface Choice {
+    name: string,
+    value: string,
+}

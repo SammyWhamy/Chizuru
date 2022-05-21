@@ -8,11 +8,13 @@ import {
     InteractionType,
     InteractionResponseType
 } from "discord-api-types/v10";
-import {Command} from "./types.js";
+import {Choice, Command} from "./types.js";
 import {JsonResponse} from "./common.js";
 import {checkNsfw} from "./hooks/nsfw.js";
 import {processEphemeral} from "./hooks/processEphemeral.js";
-import {hentaiTags, ImageType, irlTags} from "./resources/apis.js";
+import {irlAutocomplete} from "./autocomplete/irlAutocomplete.js";
+import {hentaiAutocomplete} from "./autocomplete/hentaiAutocomplete.js";
+import {gelbooruAutocomplete} from "./autocomplete/gelbooruAutocomplete.js";
 
 const commands: Map<string, Command> = new Map();
 for(const command of commandList)
@@ -49,26 +51,28 @@ router.post('/', async (request, env) => {
     }
 
     if (message.type === InteractionType.ApplicationCommandAutocomplete) {
-        const query = message.data.options.find(o => (o as APIApplicationCommandInteractionDataStringOption).focused) as APIApplicationCommandInteractionDataStringOption;
+        const query = (message.data.options.find(o => (o as APIApplicationCommandInteractionDataStringOption).focused) as APIApplicationCommandInteractionDataStringOption).value;
 
-        let tags: ImageType[] = [];
+        let choices: Choice[];
 
-        if(message.data.name === "hentai") {
-            tags = hentaiTags.filter(tag => tag.includes(query.value.toLowerCase())).slice(0, 25);
-        } else if (message.data.name === "irl") {
-            tags = irlTags.filter(tag => tag.includes(query.value.toLowerCase())).slice(0, 25);
+        switch (message.data.name) {
+            case 'irl':
+                choices = irlAutocomplete(query);
+                break;
+            case 'hentai':
+                choices = hentaiAutocomplete(query);
+                break;
+            case 'gelbooru':
+                choices = await gelbooruAutocomplete(query);
+                break;
+            default:
+                choices = [];
         }
 
         return new JsonResponse({
             type: InteractionResponseType.ApplicationCommandAutocompleteResult,
             data: {
-                choices: tags.map(tag => {
-                    const name = tag.split("_")[1];
-                    return {
-                        name: name,
-                        value: name,
-                    }
-                })
+                choices: choices,
             }
         });
     }

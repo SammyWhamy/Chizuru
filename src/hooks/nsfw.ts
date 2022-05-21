@@ -7,6 +7,7 @@ export async function checkNsfw(message: APIChatInputApplicationCommandInteracti
         "Content-Type": "application/json"
     };
     const response = await fetch(url, {
+        keepalive: true,
         method: "GET",
         headers
     }).catch(() => null);

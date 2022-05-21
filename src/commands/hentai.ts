@@ -1,7 +1,6 @@
 import {Command} from "../types.js";
 import {
     ApplicationCommandOptionType,
-    APIApplicationCommandStringOption,
     APIChatInputApplicationCommandInteraction,
     APIApplicationCommandInteractionDataStringOption
 } from "discord-api-types/v10";
@@ -19,7 +18,7 @@ export const hentai: Command = {
             description: 'The kind of hentai to get',
             autocomplete: true,
             required: true,
-        } as APIApplicationCommandStringOption]
+        }]
     },
     props: {
         nsfw: true,
@@ -46,7 +45,7 @@ export const hentai: Command = {
 
         if(!url) {
             embed.setTitle('An error occurred while fetching the image.');
-            embed.setColor(COLORS.red)
+            embed.setColor(COLORS.red);
         } else {
             embed.setColor(COLORS.yellow);
             embed.setImage(url);
