@@ -15,6 +15,11 @@ export const hentai = new ChatCommand({
             description: 'The kind of hentai to get',
             autocomplete: true,
             required: true,
+        }, {
+            type: ApplicationCommandOptionType.Boolean,
+            name: "show",
+            description: "Publicly display the output?",
+            required: false,
         }],
     },
     executor: async (message) => {
