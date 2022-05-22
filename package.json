@@ -5,9 +5,9 @@
   "type": "module",
   "main": "dist/server.js",
   "scripts": {
-    "start": "tsc && node dist/server.js",
+    "start": "tsc && node dist/index.js",
     "build": "tsc",
-    "dev": "tsc && wrangler dev dist/server.js",
+    "dev": "tsc && wrangler dev dist/index.js",
     "ngrok": "tsc && ngrok http 8787",
     "register": "tsc && node dist/register.js",
     "unregister": "tsc && node dist/unregister.js",
