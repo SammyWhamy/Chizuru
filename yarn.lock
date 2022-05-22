@@ -338,13 +338,12 @@ discord-api-types@^0.32.0, discord-api-types@^0.32.1:
   integrity sha512-/ewl0CPYT5xjOC+SJ7wADJKjtpZfiiUaYXOP/Ns54lnBcv4Xqa4iKSqRF/w1fjiUvWTYN9W8UuOiyCHtmu5fJw==
 
 dishttp@^2.0.0-alpha.0:
-  version "2.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/dishttp/-/dishttp-2.0.0-alpha.4.tgz#f153c2d9090da2c4eb87588543c01a28575859a3"
-  integrity sha512-XdDdClTifz4ypA5Mz/shE9CI9Az0BblXd1ewy04muncYBP/NbLspNnqRvFij7f2rncnNFJhvR+Ju8Yu1afGkvA==
+  version "2.0.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/dishttp/-/dishttp-2.0.0-alpha.6.tgz#4f3e46803e0d5bd82ce7359ff47a6f42e987b3b3"
+  integrity sha512-mw1RhL/MDBmqtM07NsdxUMy8IOoFR0iwkBx9ekgYgm135Ceo2+4mZEWIJY5iYyYGFBLIxr4sI6fhvwQuu1KN6A==
   dependencies:
     discord-api-types "^0.32.1"
     itty-router "^2.6.1"
-    tweetnacl "^1.0.3"
   optionalDependencies:
     node-fetch "^3.2.4"
 
@@ -593,7 +592,7 @@ ignore@^5.1.8:
 
 itty-router@^2.6.1:
   version "2.6.1"
-  resolved "https://registry.npmjs.org/itty-router/-/itty-router-2.6.1.tgz"
+  resolved "https://registry.yarnpkg.com/itty-router/-/itty-router-2.6.1.tgz#eecb59fa25b5f6f519276cc5bcaaa1cb341d5fee"
   integrity sha512-l9gxWe5TOLUESYnBn85Jxd6tIZLWdRX5YKkHIBfSgbNQ7UFPNUGuWihRV+LlEbfJJIzgLmhwAbaWRi5yWJm8kg==
 
 json-buffer@3.0.1, json-buffer@~3.0.1:
@@ -675,6 +674,11 @@ mustache@^4.2.0:
   resolved "https://registry.yarnpkg.com/mustache/-/mustache-4.2.0.tgz#e5892324d60a12ec9c2a73359edca52972bf6f64"
   integrity sha512-71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ==
 
+nanoid@^3.3.3:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
+  integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
+
 ngrok@^4.3.1:
   version "4.3.1"
   resolved "https://registry.npmjs.org/ngrok/-/ngrok-4.3.1.tgz"
@@ -726,9 +730,9 @@ p-cancelable@^2.0.0:
   integrity sha512-BZOr3nRQHOntUjTrH8+Lh54smKHoHyur8We1V8DSMVrl5A2malOOwuJRnKRDjSnkoeBh4at6BwEnb5I7Jl31wg==
 
 path-to-regexp@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.2.0.tgz#f7b3803336104c346889adece614669230645f38"
-  integrity sha512-f66KywYG6+43afgE/8j/GoiNyygk/bnoCbps++3ErRKsIYkGGupyv07R2Ok5m9i67Iqc+T2g1eAUGUPzWhYTyg==
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.2.1.tgz#d54934d6798eb9e5ef14e7af7962c945906918e5"
+  integrity sha512-JLyh7xT1kizaEvcaXOQwOc2/Yhw6KZOvPf1S8401UyLk86CU79LN3vl7ztXGm/pZ+YjoyAJ4rxmHwbkBXJX+yw==
 
 pend@~1.2.0:
   version "1.2.0"
@@ -828,11 +832,6 @@ streamsearch@0.1.2:
   resolved "https://registry.yarnpkg.com/streamsearch/-/streamsearch-0.1.2.tgz#808b9d0e56fc273d809ba57338e929919a1a9f1a"
   integrity sha1-gIudDlb8Jz2Am6VzOOkpkZoanxo=
 
-tweetnacl@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-1.0.3.tgz#ac0af71680458d8a6378d0d0d050ab1407d35596"
-  integrity sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==
-
 typescript@^4.6.4:
   version "4.6.4"
   resolved "https://registry.npmjs.org/typescript/-/typescript-4.6.4.tgz"
@@ -853,16 +852,17 @@ web-streams-polyfill@^3.0.3:
   resolved "https://registry.yarnpkg.com/web-streams-polyfill/-/web-streams-polyfill-3.2.1.tgz#71c2718c52b45fd49dbeee88634b3a60ceab42a6"
   integrity sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==
 
-wrangler@^0.0.0-62680f6:
-  version "0.0.0-62680f6"
-  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-0.0.0-62680f6.tgz#7db8708cfea3c7de280653c250715595ca52a854"
-  integrity sha512-py+GL9A7C5Rte6fYc6hGZAcAp0xeCPxwVy4uV4nHv8lnRuHRoirsqGXv5BvWbe6axMNayN7zvXUXLT0sn7/JPQ==
+wrangler@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-2.0.6.tgz#a7c4de4720ac2bc594dbae619fff6f43e0fdc737"
+  integrity sha512-LO3iTWZCPY5cWg5Ocx0j3awchBAfJtHTa21MFv0/m/AJC5FdATvH/agZ100dkOaF3/qmQVFsMI3EDx9/PiRjmg==
   dependencies:
     "@esbuild-plugins/node-globals-polyfill" "^0.1.1"
     "@esbuild-plugins/node-modules-polyfill" "^0.1.4"
     blake3-wasm "^2.1.5"
     esbuild "0.14.34"
     miniflare "2.4.0"
+    nanoid "^3.3.3"
     path-to-regexp "^6.2.0"
     selfsigned "^2.0.1"
     semiver "^1.1.0"
